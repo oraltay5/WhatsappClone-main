@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_700"
+    tools:context=".music.detail.MusicDetailActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/backIconView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/ic_back"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/musicImageView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/avatarka" />
+
+
+    <LinearLayout
+        android:id="@+id/nameMusicMsgText"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/musicImageView"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="22dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nameMusicView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Bill Gates"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/ispTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Hello, developers!!!"
+            android:textColor="@color/light_gray"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/favoriteView"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        app:srcCompat="@drawable/ic_favorite1"-->
+<!--        android:layout_toEndOf="@+id/nameMusicMsgText"-->
+<!--        android:layout_below="@+id/musicImageView"-->
+<!--        android:layout_marginTop="35dp"/>-->
+
+    <ImageButton
+        android:id="@+id/favoriteBtnView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@+id/nameMusicMsgText"
+        android:layout_below="@+id/musicImageView"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_favorite1"
+        android:background="@drawable/shape_image_btn"/>
+
+    <TextView
+        android:id="@+id/startMusicText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameMusicMsgText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:text="01:56"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/endMusicText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameMusicMsgText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:text="01:56"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white" />
+
+    <SeekBar
+        android:id="@+id/sbMusic"
+        android:layout_width="400dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/musicImageView"
+        android:layout_marginTop="120dp" />
+
+    <TextView
+        android:id="@+id/timeMusicView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01:56"
+        android:layout_below="@+id/sbMusic"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:background="@color/blue_700"
+        android:orientation="horizontal"
+        android:weightSum="110">
+
+        <ImageButton
+            android:id="@+id/repeatIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="20"
+            app:srcCompat="@drawable/ic_repeat"
+            android:background="@drawable/shape_image_btn"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/prevIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="20"
+            app:srcCompat="@drawable/ic_skip_previous" />
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/playBtn"-->
+<!--            android:onClick="playBtnClick"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="30"-->
+<!--            android:src="@drawable/ic_play"-->
+<!--            android:background="@drawable/shape_image_btn">-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/playImageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            app:srcCompat="@drawable/ic_play"-->
+<!--            android:background="@drawable/shape_image_btn"/>-->
+
+<!--        </RelativeLayout>-->
+
+        <ImageButton
+            android:id="@+id/playBtn"
+            android:onClick="playBtnClick"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="30"
+            android:src="@drawable/ic_play"
+            android:background="@drawable/shape_image_btn"/>
+
+
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/playMusicIconView"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="30"-->
+<!--            app:srcCompat="@drawable/ic_play" />-->
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nextIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="20"
+            app:srcCompat="@drawable/ic_skip_next" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/musicListIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="20"
+            app:srcCompat="@drawable/ic_queue_music" />
+
+    </LinearLayout>
+
+</RelativeLayout>

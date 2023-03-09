@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".status.detail.StatusDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarViewGroup"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="16dp"
+        android:background="@color/black"
+        android:layout_height="56dp">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/ic_back"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/statusAvatarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/backIconView"
+            app:srcCompat="@drawable/ic_status" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/statusAvatarView"
+            android:layout_toStartOf="@id/moreIconView"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameStatsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:text="Bill Gates"/>
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="2 hours ago"/>
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/moreIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_more"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarViewGroup">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/panther">
+
+        </ImageView>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

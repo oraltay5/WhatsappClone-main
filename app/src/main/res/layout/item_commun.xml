@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemViewComGroup"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:paddingHorizontal="16dp"
+    android:layout_marginTop="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/comAvatarView"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_soccer" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/comAvatarView"
+        android:layout_toStartOf="@id/comDateTextView"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/comNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:text="Bill Gates"/>
+
+        <TextView
+            android:id="@+id/comMsgTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:text="Hello, developers!!!"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        android:text="19:00 PM"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

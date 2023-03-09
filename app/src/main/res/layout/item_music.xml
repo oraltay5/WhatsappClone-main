@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemViewGroup"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:paddingHorizontal="16dp"
+    android:layout_marginTop="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/labelView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelView"
+        android:layout_toStartOf="@id/timeText"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/musicNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:text="Music name"/>
+
+        <TextView
+            android:id="@+id/ispolnotelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:text="Ispolnitel"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        android:text="02:30"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
