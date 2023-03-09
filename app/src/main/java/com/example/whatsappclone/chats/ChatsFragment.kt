@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.os.Parcelable
-import android.telecom.Call
 import kotlinx.parcelize.Parcelize
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
@@ -16,8 +15,10 @@ import com.example.whatsappclone.network.AnimeDTO
 import com.example.whatsappclone.network.AnimeListDTO
 import com.example.whatsappclone.network.ApiClient
 import com.example.whatsappclone.network.ApiServices
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
+
 
 class ChatsFragment: Fragment(R.layout.fragment_chats) {
 
@@ -33,7 +34,7 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
     }
 
     private fun setupView(view: View){
-        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView = view.findViewById<RecyclerView>(R.id.chatRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
