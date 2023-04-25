@@ -20,11 +20,14 @@ class CallDetailActivity : AppCompatActivity() {
     var call: Calls? = null
     var name: String? = null
     var groupName: String? = null
-    private val dynamicBroadcastReceiver = DynamicBroadcastReceiver()
-//    private val staticBroadcastReceiver = StaticBroadcastReceiver()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_call_detail)
+
+        val backIcon = findViewById<AppCompatImageView>(R.id.closeIconView)
+        backIcon.setOnClickListener {
+            finish()
+        }
 
         if(intent.extras!!.containsKey("ARG_FROM_CHAT")){
             name = intent.getStringExtra("ARG_FROM_CHAT")
@@ -34,33 +37,10 @@ class CallDetailActivity : AppCompatActivity() {
             call = intent.getParcelableExtra<Calls>("ARG_CALL") as Calls
         }
 
-
-
         setupView()
-
-        val backIcon = findViewById<AppCompatImageView>(R.id.closeIconView)
-        backIcon.setOnClickListener {
-            finish()
-        }
-        registerDynamicBroadCast()
-//        registerStaticBroadCast()
     }
-
-    private fun registerDynamicBroadCast() {
-        val filter = IntentFilter(DYNAMIC_BROADCAST)
-        this.registerReceiver(dynamicBroadcastReceiver, filter)
-    }
-//    private fun registerStaticBroadCast() {
-//        val filter = IntentFilter(STATIC_BROADCAST)
-//        this.registerReceiver(staticBroadcastReceiver, filter)
-//    }
-
-
     private fun setupView() {
         val textView = findViewById<TextView>(R.id.textView2)
-        val dynamicButton = findViewById<Button>(R.id.dynamicButton)
-        val staticButton = findViewById<Button>(R.id.staticButton)
-
 
         if (call != null){
             textView.text = "${call?.name}"
@@ -69,23 +49,5 @@ class CallDetailActivity : AppCompatActivity() {
         }else if(groupName!= null){
             textView.text = "${groupName}"
         }
-
-        dynamicButton.setOnClickListener {
-            val intent = Intent()
-            intent.action = DYNAMIC_BROADCAST
-            intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
-            sendBroadcast(intent)
-        }
-
-        staticButton.setOnClickListener {
-            val intent = Intent()
-            intent.action = STATIC_BROADCAST
-            sendBroadcast(intent)
-        }
-    }
-    override fun onStop() {
-        super.onStop()
-        unregisterReceiver(dynamicBroadcastReceiver)
-//        unregisterReceiver(staticBroadcastReceiver)
     }
 }

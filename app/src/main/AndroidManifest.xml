@@ -8,6 +8,7 @@
     <uses-feature android:name="android.permission.CAMERA" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,7 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsappClone"
         tools:targetApi="31">
-
+        <activity
+            android:name=".BroadcastActivity"
+            android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".AuthActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".authorization.AuthActivity" />
         <activity
             android:name=".chats.detail.ChatDetailActivity"
             android:theme="@style/Theme.WhatsappClone1" />
@@ -41,20 +48,27 @@
         <activity android:name=".menuActionBar.SettingsActivity" />
         <activity android:name=".menuActionBar.MusicActivity" />
 
-        <receiver android:name=".broadcastReceivers.StaticBroadcastReceiver"
-            android:exported="true"
-            android:enabled="true">
+        <receiver
+            android:name=".broadcastReceivers.StaticBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
+
                 <!-- The actions you wish to listen to, below is an example -->
-                <action android:name="com.example.action.STATIC_BROADCAST"/>
+                <action android:name="com.example.action.STATIC_BROADCAST" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.MusicPlayerService"
+        <service
+            android:name=".service.MusicPlayerService"
             android:enabled="true" />
 
-        <activity android:name=".music.detail.MusicDetailActivity"
-            android:theme="@style/Theme.WhatsappClone1"/>
+        <activity
+            android:name=".music.detail.MusicDetailActivity"
+            android:theme="@style/Theme.WhatsappClone1" />
+        <activity android:name=".sampleNavigation.NavigationActivity" />
+        <activity android:name=".communities.detail.BroadcastActivity"/>
+        <activity android:name=".communities.addChat.ChatCreateActivity"/>
     </application>
 
 </manifest>

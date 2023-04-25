@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
-import com.example.whatsappclone.Chats
 import com.example.whatsappclone.R
 import com.example.whatsappclone.calls.detail.CallDetailActivity
+import com.example.whatsappclone.chats.model.Chats
 
 class ChatDetailActivity: AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
@@ -35,7 +35,7 @@ class ChatDetailActivity: AppCompatActivity() {
         val call = findViewById<AppCompatImageView>(R.id.chatCallIconView)
         call.setOnClickListener {
             val intent = Intent(this, CallDetailActivity::class.java)
-            intent.putExtra("ARG_FROM_CHAT", chat?.name)
+            intent.putExtra("ARG_FROM_CHAT", chat?.firstName)
             startActivity(intent)
         }
 
@@ -59,13 +59,15 @@ class ChatDetailActivity: AppCompatActivity() {
     }
 
     private fun setupView() {
-        val textView = findViewById<TextView>(R.id.nameTextView)
+        val textView = findViewById<TextView>(R.id.firstNameTextView)
+        val lastNameTextView = findViewById<TextView>(R.id.lastNameTextView)
         val avatarView = findViewById<AppCompatImageView>(R.id.chatAvatarView)
         val chatTextView = findViewById<TextView>(R.id.chatMTextView)
         val chatDateTextView = findViewById<TextView>(R.id.chatDateTextView)
 
+        textView.text = "${chat?.firstName}"
+        lastNameTextView.text = "${chat?.lastName}"
         chatTextView.text = "${chat?.demoText}"
-        textView.text = "${chat?.name}"
         chatDateTextView.text = "${chat?.date}"
 //        avatarView.drawable? = "${chat?.avatar}"
         Glide

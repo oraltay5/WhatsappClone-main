@@ -16,42 +16,49 @@
 
     <LinearLayout
         android:id="@+id/nameMsgText"
-        android:layout_width="228dp"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-
         android:layout_marginStart="4dp"
         android:layout_toEndOf="@id/avatarView"
         android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
         <TextView
-            android:id="@+id/nameTextView"
+            android:id="@+id/firstNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Bill Gates"
+            android:text="Bill"
             android:textColor="@color/black"
             android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/lastNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gates"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"
+            android:textSize="22sp" /></LinearLayout>
 
         <TextView
             android:id="@+id/msgTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:text="Hello, developers!!!"
             android:textColor="@color/gray"
+            android:layout_marginStart="7dp"
             android:textSize="18sp" />
-
-
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/dateAndMsg"
-        android:layout_width="75dp"
-        android:layout_height="59dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
@@ -62,8 +69,6 @@
             android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="11dp"
             android:text="19:00"
             android:textColor="@color/gray"
             android:textSize="14sp" />
@@ -72,15 +77,10 @@
             android:id="@+id/moreIconView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="20dp"
             app:srcCompat="@drawable/ic_numessage" />
-
     </LinearLayout>
 
-
-    
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

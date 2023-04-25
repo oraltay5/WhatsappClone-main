@@ -11,7 +11,6 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
-import com.example.whatsappclone.Chats
 import com.example.whatsappclone.R
 import com.example.whatsappclone.music.Music
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WhatsApp</string>
+    <string name="policy_text">Read our Privacy Policy. Click "Sign In" to accept the Terms of Service.</string>
 </resources>

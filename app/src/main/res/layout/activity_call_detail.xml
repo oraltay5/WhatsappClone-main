@@ -19,22 +19,6 @@
         android:textSize="24sp" />
 
 
-    <Button
-        android:id="@+id/dynamicButton"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_centerInParent="true"
-        android:layout_marginHorizontal="16dp"
-        android:text="Send Dynamic Broadcast Receiver"/>
-
-    <Button
-        android:id="@+id/staticButton"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/dynamicButton"
-        android:layout_marginHorizontal="16dp"
-        android:text="Send Static Broadcast Receiver"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="90dp"

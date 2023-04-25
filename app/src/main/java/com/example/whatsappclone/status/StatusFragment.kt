@@ -7,9 +7,8 @@ import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.whatsappclone.Chats
+import com.example.whatsappclone.authorization.AuthActivity
 import com.example.whatsappclone.R
-import com.example.whatsappclone.status.detail.StatusDetailActivity
 
 class StatusFragment: Fragment(R.layout.fragment_status) {
 
@@ -21,7 +20,7 @@ class StatusFragment: Fragment(R.layout.fragment_status) {
         recyclerView.adapter = StatusRecyclerAdapter(
             item = getStatusSampleData(),
             onItemClickListener = { name ->
-                val intent = Intent(activity, StatusDetailActivity::class.java)
+                val intent = Intent(activity, AuthActivity::class.java)
                 intent.putExtra("ARG_NAME", name)
                 startActivity(intent)
             }

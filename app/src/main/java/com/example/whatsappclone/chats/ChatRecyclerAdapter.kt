@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.whatsappclone.Chats
 import com.example.whatsappclone.R
+import com.example.whatsappclone.chats.model.Chats
 
 class ChatRecyclerAdapter(
     private val item: List<Chats>,
@@ -34,7 +34,8 @@ class ChatRecyclerAdapter(
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        lateinit var nameTextView: TextView
+        lateinit var firstNameTextView: TextView
+        lateinit var lastNameTextView: TextView
         lateinit var msgTextView: TextView
         lateinit var avatarView: ImageView
         lateinit var dateTextView: TextView
@@ -42,14 +43,16 @@ class ChatRecyclerAdapter(
 
 
         fun bind(item: Chats){
-            nameTextView = itemView.findViewById(R.id.nameTextView)
+            firstNameTextView = itemView.findViewById(R.id.firstNameTextView)
+            lastNameTextView = itemView.findViewById(R.id.lastNameTextView)
             msgTextView = itemView.findViewById(R.id.msgTextView)
             avatarView = itemView.findViewById(R.id.avatarView)
             dateTextView = itemView.findViewById(R.id.dateTextView)
             itemViewGroup = itemView.findViewById(R.id.itemViewGroup)
 
 
-            nameTextView.text = item.name
+            firstNameTextView.text = item.firstName
+            lastNameTextView.text = item.lastName
             msgTextView.text = item.demoText
             dateTextView.text = item.date
 

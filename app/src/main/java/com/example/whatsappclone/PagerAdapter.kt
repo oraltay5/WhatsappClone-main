@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.whatsappclone.chats.ChatsFragment
+import com.example.whatsappclone.communities.CommunitiesFragment
 import com.example.whatsappclone.music.MusicListFragment
 import com.example.whatsappclone.status.StatusFragment
 

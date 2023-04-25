@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_auth)
 
 //        mediaPlayer = MediaPlayer.create(this, R.raw.select)
 //
@@ -103,3 +103,19 @@ class MainActivity : AppCompatActivity() {
         ).attach()
     }
 }
+
+
+//import android.annotation.SuppressLint
+//import androidx.appcompat.app.AppCompatActivity
+//import android.os.Bundle
+//import com.example.whatsappclone.databinding.ActivityMainBinding
+//
+//class MainActivity : AppCompatActivity() {
+//    lateinit var binding: ActivityMainBinding
+//    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//    }
+//}

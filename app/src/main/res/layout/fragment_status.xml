@@ -42,7 +42,6 @@
                         android:id="@+id/nameTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
                         android:text="My status"
                         android:textColor="@color/black"
                         android:textSize="22sp" />
@@ -51,7 +50,6 @@
                         android:id="@+id/msgStTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
                         android:text="Tap to add status update"
                         android:textColor="@color/gray"
                         android:textSize="18sp" />
@@ -84,8 +82,6 @@
                 android:id="@+id/recentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="Recent updates"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.whatsappclone.sampleNavigation.FirstNavFragment"
+        tools:layout="@layout/fragment_first_nav">
+
+        <action
+            android:id="@+id/from_first_to_second_fragment"
+            app:destination="@id/secondFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.whatsappclone.sampleNavigation.SecondNavFragment"
+        tools:layout="@layout/fragment_second_nav"/>
+
+</navigation>

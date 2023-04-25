@@ -25,10 +25,10 @@
 
         <RelativeLayout
             android:id="@+id/chatRelAvatarView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_toEndOf="@+id/backIconView"
-            android:layout_marginTop="3dp"
+            android:layout_centerVertical="true"
             android:layout_marginStart="9dp"
             android:background="@drawable/krugliye_ugli">
 
@@ -51,17 +51,29 @@
 <!--            android:layout_toEndOf="@+id/backIconView"-->
 <!--            app:srcCompat="@drawable/avatarka" />-->
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/chatRelAvatarView"
+            android:layout_centerVertical="true">
 
             <TextView
-                android:id="@+id/nameTextView"
+                android:id="@+id/firstNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="90dp"
-                android:text="WhatsApp"
+                android:text="Bill"
                 android:textColor="@color/white"
+                android:layout_marginStart="4dp"
                 android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/lastNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gates"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/white"
+                android:textSize="22sp" /></LinearLayout>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/chatCallIconView"
