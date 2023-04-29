@@ -55,7 +55,7 @@ class ComRecyclerAdapter(
                 .with(itemView)
                 .load("")
                 .centerCrop()
-                .placeholder(R.drawable.ic_default)
+                .placeholder(R.drawable.ic_community)
                 .into(avatarView)
 
             itemViewGroup.setOnClickListener {

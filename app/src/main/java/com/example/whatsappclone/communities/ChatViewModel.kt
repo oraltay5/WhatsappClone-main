@@ -25,6 +25,17 @@ class ChatViewModel(
             _callsData.value = chats
         }
     }
+
+    fun deleteChat(id: Long) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                appDatabase.chatDao().deleteChatById(id)
+            }
+            // Refresh callsData after deleting chat
+            onViewCreated()
+        }
+    }
+
 }
 
 

@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
@@ -17,8 +18,13 @@ import com.example.whatsappclone.communities.ComRecyclerAdapter
 import com.example.whatsappclone.communities.addChat.ChatCreateActivity
 import com.example.whatsappclone.communities.detail.BroadcastActivity
 import com.example.whatsappclone.communities.detail.ComDetailActivity
+import com.example.whatsappclone.database.AppDatabase
+import com.example.whatsappclone.database.entities.ChatEntity
 import com.example.whatsappclone.sampleNavigation.NavigationActivity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BroadcastChannel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,6 +32,7 @@ class CommunitiesFragment: Fragment(R.layout.fragment_commun) {
 
     private val viewModel by viewModel<ChatViewModel>()
     lateinit var recyclerView: RecyclerView
+    lateinit var appDatabase: AppDatabase
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,25 +62,6 @@ class CommunitiesFragment: Fragment(R.layout.fragment_commun) {
             startActivity(Intent(activity, BroadcastActivity::class.java))
         }
 
-
-//        val aaa = view.findViewById<LinearLayout>(R.id.newGroup)
-//        aaa.setOnClickListener {
-//            val intent = Intent(activity, ChatCreateActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        val bbb = view.findViewById<LinearLayout>(R.id.newContact)
-//        bbb.setOnClickListener {
-//            val intent = Intent(activity, NavigationActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        val ccc = view.findViewById<LinearLayout>(R.id.checkBrod)
-//        ccc.setOnClickListener {
-//            val intent = Intent(activity, BroadcastActivity::class.java)
-//            startActivity(intent)
-//        }
-
         recyclerView = view.findViewById<RecyclerView>(R.id.comRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
@@ -83,35 +71,21 @@ class CommunitiesFragment: Fragment(R.layout.fragment_commun) {
             recyclerView.adapter = ComRecyclerAdapter(
                 item = groupList,
                 onItemClickListener = { chat ->
-
+                    deleteChat(chat.id)
                 }
             )
-        }}}
+        }
+    }
 
+    suspend fun deleteChat(id: Long) {
+        withContext(Dispatchers.IO) { //Функция withContext() - чтобы запрос на удаление выполняется в фоновом потоке
+            appDatabase.chatDao().deleteChatById(id)
+        }
+    }
+}
 
-//            override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        val aaa = view.findViewById<LinearLayout>(R.id.newGroup)
-//        aaa.setOnClickListener {
-//            val intent = Intent(activity, NavigationActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        val bbb = view.findViewById<LinearLayout>(R.id.newContact)
-//        bbb.setOnClickListener {
-//            val intent = Intent(activity, NavigationActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        val ccc = view.findViewById<LinearLayout>(R.id.checkBrod)
-//        ccc.setOnClickListener {
-//            val intent = Intent(activity, BroadcastActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
-
-
+//Мы использовали ключевое слово suspend для функции deleteChat(), потому что она взаимодействует с базой данных, что может занять длительное время.
+//Функции, которые могут занять длительное время, не должны блокировать основной поток пользовательского интерфейса. Вместо этого мы помечаем такие функции ключевым словом suspend, чтобы их можно было вызывать из корутина. Корутины позволяют выполнять асинхронные операции без блокировки основного потока и приостановки работы приложения.
 
 
 
