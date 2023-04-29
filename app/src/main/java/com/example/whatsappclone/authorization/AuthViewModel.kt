@@ -20,26 +20,59 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AuthViewModel(
-    private val apiServices: ApiServices,
-    ): ViewModel()  {
+//class AuthViewModel(
+//    private val apiServices: ApiServices,
+//): ViewModel()  {
+//
+//    private val _success = MutableLiveData<UsersDTO>()
+//    val success: LiveData<UsersDTO>
+//        get() = _success
+//
+//    fun onViewCreated(name:String, password:String){
+//
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val users1 = apiServices.auth(
+//                AuthDTO(
+//                    name,
+//                    password
+//                )
+//            )
+//            _success.value = users1
+//
+//        }
+//
+//    }
+//}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------
+class AuthViewModel(private val apiServices: ApiServices) : ViewModel() {
 
     private val _success = MutableLiveData<UsersDTO>()
-    val success: LiveData<UsersDTO>
-        get() = _success
+    val success: LiveData<UsersDTO> get() = _success
 
-    fun onViewCreated(name:String, password:String){
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> get() = _error
 
-            CoroutineScope(Dispatchers.IO).launch {
-                val users1 = apiServices.auth(
-                    AuthDTO(
-                        name,
-                        password
-                    )
-                )
-                _success.value = users1
-
+    fun onViewCreated(username: String, password: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val users = apiServices.auth(AuthDTO(username, password))
+                _success.postValue(users)
+            } catch (e: Exception) {
+                _error.postValue("Неправильный логин или пароль")
             }
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------
+
+
+
 //            val intent = Intent(this, MainActivity::class.java)
 //            startActivity(intent)
 
@@ -69,5 +102,3 @@ class AuthViewModel(
 //                //Toast.makeText(this@MainActivity, "ERROR", Toast.LENGTH_SHORT).show()
 //            }
 //        })
-    }
-}

@@ -1,52 +1,48 @@
 package com.example.whatsappclone.authorization
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.whatsappclone.MainActivity
 import com.example.whatsappclone.databinding.ActivityMainBinding
-//import com.example.whatsappclone.network.ApiClient
 import com.example.whatsappclone.network.ApiServices
-import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var apiServices: ApiServices
     private val viewModel by viewModel<AuthViewModel>()
-    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
-//-------------------------------------------------------------------------------------
-
         binding.btnSignIn.setOnClickListener {
-            viewModel.onViewCreated(binding.editUserName.text.toString(),
-                binding.editPassword.text.toString())
+            val username = binding.editUserName.text.toString().trim()
+            val password = binding.editPassword.text.toString().trim()
 
-//                runOnUiThread{
-//                    binding.apply {
-//                        Picasso.get().load(users1.image).into(authView)
-//                        welcomeText.text = users1.firstName
-////                        textView2.text = users1.lastName
-//                    }
-//                }
-
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                viewModel.onViewCreated(username, password)
+            } else {
+                Toast.makeText(this, "Введите логин и пароль", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        viewModel.success.observe(this@AuthActivity){
-            binding.apply {
-                        Picasso.get().load(it.image).into(authView)
-                        welcomeText.text = it.firstName
-//                        textView2.text = users1.lastName
-                    }
+        viewModel.success.observe(this@AuthActivity) { user ->
+            startActivity(Intent(this@AuthActivity, MainActivity::class.java))
         }
-        //----------------------------------------------------------------------------------
+
+//        viewModel.success.observe(this, Observer { user ->
+//            startActivity(MainActivity.newIntent(this, user))
+//        })
+//
+//        viewModel.error.observe(this, Observer { error ->
+//            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+//        })
     }
+}
+
 
 //        val retrofit = Retrofit.Builder()
 //            .baseUrl("https://dummyjson.com/")
@@ -79,9 +75,6 @@ class AuthActivity : AppCompatActivity() {
 
 
 
-
-
-}
 
 //import android.annotation.SuppressLint
 //import android.content.Intent
