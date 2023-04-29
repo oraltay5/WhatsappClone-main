@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ChatViewModel(
+class ChatsViewModel(
     private val apiServices: ApiServices
 ): ViewModel() {
 

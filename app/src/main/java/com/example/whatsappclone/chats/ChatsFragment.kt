@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
 import com.example.whatsappclone.chats.detail.ChatDetailActivity
-import com.example.whatsappclone.network.ApiServices
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChatsFragment: Fragment(R.layout.fragment_chats) {
 
-    private val viewModel by viewModel<ChatViewModel>()
+    private val viewModel by viewModel<ChatsViewModel>()
 
     lateinit var recyclerView: RecyclerView
 

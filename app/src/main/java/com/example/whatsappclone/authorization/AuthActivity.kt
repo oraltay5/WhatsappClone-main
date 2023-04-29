@@ -3,15 +3,10 @@ package com.example.whatsappclone.authorization
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.whatsappclone.chats.ChatViewModel
 import com.example.whatsappclone.databinding.ActivityMainBinding
 //import com.example.whatsappclone.network.ApiClient
 import com.example.whatsappclone.network.ApiServices
-import com.example.whatsappclone.network.AuthDTO
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AuthActivity : AppCompatActivity() {
