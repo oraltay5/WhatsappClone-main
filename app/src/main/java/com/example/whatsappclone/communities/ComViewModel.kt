@@ -8,7 +8,7 @@ import com.example.whatsappclone.database.AppDatabase
 import com.example.whatsappclone.database.entities.ChatEntity
 import kotlinx.coroutines.*
 
-class ChatViewModel(
+class ComViewModel(
     private val appDatabase: AppDatabase
 ): ViewModel() {
 
@@ -28,14 +28,16 @@ class ChatViewModel(
 
     fun deleteChat(id: Long) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
+            withContext(Dispatchers.IO) {   //Функция withContext() - чтобы запрос на удаление выполняется в фоновом потоке
                 appDatabase.chatDao().deleteChatById(id)
             }
             // Refresh callsData after deleting chat
             onViewCreated()
         }
     }
-
+//Мы использовали ключевое слово suspend для функции deleteChat(), потому что она взаимодействует с базой данных, что может занять длительное время.
+//Функции, которые могут занять длительное время, не должны блокировать основной поток пользовательского интерфейса. Вместо этого мы помечаем такие функции ключевым словом suspend, чтобы их можно было вызывать из корутина. Корутины позволяют выполнять асинхронные операции без блокировки основного потока и приостановки работы приложения.
+///
 }
 
 

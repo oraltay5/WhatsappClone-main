@@ -47,44 +47,44 @@ class ChatsViewModel(
         })
     }
 
-    fun getChatSampleData() = mutableListOf<Chats>().apply {
-        (1..20).forEach {index ->
-            if(index == 2) {
-                add(
-                    Chats(
-                        firstName = "$index Bill Gates",
-                        lastName = "Gates",
-                        demoText = "Good job!!!",
-//                        avatar = R.drawable.bill_gates,
-                        avatar = "https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg",
-                        date = "Yesterday"
-                    )
-                )
-            } else if(index > 2){
-                add(
-                    Chats(
-                        firstName = "$index Steve Jobs",
-                        lastName = "Gates",
-                        demoText = "Hello developers!!!",
-//                        avatar = R.drawable.bill_gates,
-                        avatar = "https://cdn.britannica.com/04/171104-050-AEFE3141/Steve-Jobs-iPhone-2010.jpg",
-                        date = "01.02.2023"
-                    )
-                )
-            } else{
-                add(
-                    Chats(
-                        firstName = "$index Bill Gates",
-                        lastName = "Gates",
-                        demoText = "Hi!!!",
-//                        avatar = R.drawable.bill_gates,
-                        avatar = "https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg",
-                        date = "12:20"
-                    )
-                )
-            }
-        }
-    }
+//    fun getChatSampleData() = mutableListOf<Chats>().apply {
+//        (1..20).forEach {index ->
+//            if(index == 2) {
+//                add(
+//                    Chats(
+//                        firstName = "$index Bill Gates",
+//                        lastName = "Gates",
+//                        demoText = "Good job!!!",
+////                        avatar = R.drawable.bill_gates,
+//                        avatar = "https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg",
+//                        date = "Yesterday"
+//                    )
+//                )
+//            } else if(index > 2){
+//                add(
+//                    Chats(
+//                        firstName = "$index Steve Jobs",
+//                        lastName = "Gates",
+//                        demoText = "Hello developers!!!",
+////                        avatar = R.drawable.bill_gates,
+//                        avatar = "https://cdn.britannica.com/04/171104-050-AEFE3141/Steve-Jobs-iPhone-2010.jpg",
+//                        date = "01.02.2023"
+//                    )
+//                )
+//            } else{
+//                add(
+//                    Chats(
+//                        firstName = "$index Bill Gates",
+//                        lastName = "Gates",
+//                        demoText = "Hi!!!",
+////                        avatar = R.drawable.bill_gates,
+//                        avatar = "https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg",
+//                        date = "12:20"
+//                    )
+//                )
+//            }
+//        }
+//    }
 
 }
 

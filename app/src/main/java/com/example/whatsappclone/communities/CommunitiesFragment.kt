@@ -2,35 +2,23 @@ package com.example.whatsappclone.communities
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.View
 import android.widget.LinearLayout
-import androidx.annotation.DrawableRes
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
-import com.example.whatsappclone.chats.detail.ChatDetailActivity
-import com.example.whatsappclone.communities.ChatViewModel
-import com.example.whatsappclone.communities.ComRecyclerAdapter
 import com.example.whatsappclone.communities.addChat.ChatCreateActivity
 import com.example.whatsappclone.communities.detail.BroadcastActivity
-import com.example.whatsappclone.communities.detail.ComDetailActivity
 import com.example.whatsappclone.database.AppDatabase
-import com.example.whatsappclone.database.entities.ChatEntity
 import com.example.whatsappclone.sampleNavigation.NavigationActivity
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.BroadcastChannel
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlinx.parcelize.Parcelize
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CommunitiesFragment: Fragment(R.layout.fragment_commun) {
 
-    private val viewModel by viewModel<ChatViewModel>()
+    private val viewModel by viewModel<ComViewModel>()
     lateinit var recyclerView: RecyclerView
     lateinit var appDatabase: AppDatabase
 
@@ -77,11 +65,11 @@ class CommunitiesFragment: Fragment(R.layout.fragment_commun) {
         }
     }
 
-    suspend fun deleteChat(id: Long) {
-        withContext(Dispatchers.IO) { //Функция withContext() - чтобы запрос на удаление выполняется в фоновом потоке
-            appDatabase.chatDao().deleteChatById(id)
-        }
-    }
+//    suspend fun deleteChat(id: Long) {
+//        withContext(Dispatchers.IO) { //Функция withContext() - чтобы запрос на удаление выполняется в фоновом потоке
+//            appDatabase.chatDao().deleteChatById(id)
+//        }
+//    }
 }
 
 //Мы использовали ключевое слово suspend для функции deleteChat(), потому что она взаимодействует с базой данных, что может занять длительное время.
